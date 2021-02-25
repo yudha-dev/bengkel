@@ -57,8 +57,8 @@
                                         <?php elseif ($orders->status == 'Review') : ?>
                                             <a href="<?= base_url('konsumen/servis/review/') . $orders->kode ?>" class="btn btn-primary">Review <i class="fas fa-star"></i> </a>
                                         <?php else : ?>
-                                            <span class="badge badge-danger">Selesai</span>
-                                            <a href="<?= base_url('konsumen/service/lap_service/') . $orders->kode ?>" class="badge badge-warning"><i class="fas fa-print"></i> Cetak Nota</a>
+                                            <a href="<?= base_url('konsumen/servis/detail_order/') . $orders->kode ?>" class="btn btn-success">Histori</a>
+                                            <a href="<?= base_url('konsumen/service/lap_service/') . $orders->kode ?>" target="_blank" class="btn btn-warning"><i class="fas fa-print"></i> Cetak Nota</a>
 
                                         <?php endif; ?>
 

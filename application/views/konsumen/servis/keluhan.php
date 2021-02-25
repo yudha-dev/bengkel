@@ -1,6 +1,6 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="text-center m-0 font-weight-bold text-hijau">Input Keluhan</h6>
+        <h6 class="text-center m-0 font-weight-bold text-hijau">Input Keluhan <span class="float-right"><?= $bengkel->namabengkel ?></span></h6>
     </div>
     <div class="card-body">
         <form action="<?= base_url('konsumen/order') ?>" method="POST">

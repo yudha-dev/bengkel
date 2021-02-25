@@ -203,13 +203,15 @@ class Kendaraan extends CI_Controller
     {
         $session    = $this->session->all_userdata();
         $id         = $session['id_bengkel'];
+        $bengkel    = $this->Bengkel_model->getById($id);
         $keluhan    = $this->Keluhan_model->keluhanBengkel($id)->result();
 
         $data = [
             'folder'    => 'servis',
             'page'      => 'keluhan',
             'title'     => 'Input Keluhan',
-            'keluhan'   => $keluhan
+            'keluhan'   => $keluhan,
+            'bengkel'   => $bengkel
         ];
 
         $this->load->view('konsumen/templates/index', $data);

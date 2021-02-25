@@ -89,4 +89,17 @@ class OrderModel extends CI_Model
         $this->db->where('kode', $kode);
         $this->db->update($this->_table, $data);
     }
+    //get order
+    public function getHistory($id)
+    {
+        $this->db->select('order.alamat as lokasi, nama, tanggal, kendaraan.status, no_plat, kendaraan.id_kend, kode');
+        $this->db->join('keluhan', 'order.id_kel = keluhan.id_kel');
+        $this->db->join('kendaraan', 'order.id_kend = kendaraan.id_kend');
+        $this->db->join('bengkel', 'order.id_bengkel = bengkel.id_bengkel');
+        $this->db->join('user', 'kendaraan.id_user = user.id_user');
+        $this->db->join('jenis_kend', 'kendaraan.id_jnskend = jenis_kend.id_jnskend');
+        $this->db->join('merk_kend', 'kendaraan.id_merk = merk_kend.id_merk');
+        $this->db->where('kendaraan.status', 'Selesai');
+        return $this->db->group_by('kode')->get_where($this->_table, ['order.id_bengkel' => $id]);
+    }
 }

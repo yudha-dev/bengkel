@@ -20,7 +20,7 @@ class Order extends CI_Controller
             'folder'    => 'order',
             'page'      => 'data_servis',
             'title'     => 'Data Order Service',
-            'order'      => $order
+            'order'     => $order
         ];
 
         $this->load->view('konsumen/templates/index', $data);
@@ -111,5 +111,19 @@ class Order extends CI_Controller
         $this->ReviewModel->save($data);
         $this->Kendaraan_model->sukses($post['id_kend']);
         return redirect(site_url('konsumen/servis/data_servis'));
+    }
+    //
+    public function showDetail($kode)
+    {
+        $detail     = $this->OrderModel->getDetailOrder($kode)->result();
+
+        $data = [
+            'folder'    => 'order',
+            'page'      => 'detail_selesai',
+            'title'     => 'Histori Servis',
+            'detail'    => $detail,
+        ];
+
+        $this->load->view('konsumen/templates/index', $data);
     }
 }
