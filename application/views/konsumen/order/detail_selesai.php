@@ -34,7 +34,7 @@
                             <?php if ($det->harga_mesin == null) : ?>
                                 <td>Tidak</td>
                             <?php else : ?>
-                                <?= "Rp. " . number_format($det->harga_mesin, 0, ',', '.') ?>
+                                <td><?= "Rp. " . number_format($det->harga_mesin, 0, ',', '.') ?></td>
                             <?php endif; ?>
                             <td></td>
                         </tr>
